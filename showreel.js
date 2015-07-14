@@ -1,8 +1,7 @@
-
-
-
 // Create queue. Process data
 var newDataObj = [];
+var svg;
+
 function showShowreel(ticker1,ticker2,ticker3){
   
   // Append the panel
@@ -27,7 +26,7 @@ function showShowreel(ticker1,ticker2,ticker3){
 
   var color = d3.scale.category10();
 
-  var svg = d3.select("#visContainer").append("svg")
+  svg = d3.select("#visContainer").append("svg")
       .attr("width", w + m[1] + m[3])
       .attr("height", h + m[0] + m[2])
       .append("g")
@@ -63,6 +62,7 @@ function showShowreel(ticker1,ticker2,ticker3){
 }
 
 function fetchCSV (ticker, callBack) {
+  console.log(newDataObj);
   console.log('Fetching stockprice data for ', ticker);
   var url = "http://ichart.finance.yahoo.com/table.csv?s=" + ticker + "&c=2015";
   d3.csv(url, function (da) {
