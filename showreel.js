@@ -1,53 +1,65 @@
-var m = [20, 20, 30, 20];
-    //w = 960 - m[1] - m[3],
-    //h = 500 - m[0] - m[2];
-  
-var w = parseInt(d3.select("#visContainer").style("width").split("px")[0]) - m[1] - m[3];
-var h = parseInt(d3.select("#visContainer").style("height").split("px")[0]) - m[0] - m[2];
 
-var x,
-    y,
-    duration = 1500,
-    delay = 500;
-
-var color = d3.scale.category10();
-
-var svg = d3.select("#visContainer").append("svg")
-    .attr("width", w + m[1] + m[3])
-    .attr("height", h + m[0] + m[2])
-  	.append("g")
-    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
-
-var stocks,
-    symbols;
-
-// A line generator, for the dark stroke.
-var line = d3.svg.line()
-    .interpolate("basis")
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.price); });
-
-// A line generator, for the dark stroke.
-var axis = d3.svg.line()
-    .interpolate("basis")
-    .x(function(d) { return x(d.date); })
-    .y(h);
-
-// A area generator, for the dark stroke.
-var area = d3.svg.area()
-    .interpolate("basis")
-    .x(function(d) { return x(d.date); })
-    .y1(function(d) { return y(d.price); });
 
 
 // Create queue. Process data
 var newDataObj = [];
 function showShowreel(ticker1,ticker2,ticker3){
+  
+  // Append the panel
+  var html = '<section class="db-card">';
+  html += '<h1>ShowReel</h1>';
+  html += '<div id="visContainer" style="min-height:250px;"></div>';
+  html += '</section>';
+  $('#dashboard').append(html);
+
+  // Prepare the svg
+  var m = [20, 20, 30, 20];
+    //w = 960 - m[1] - m[3],
+    //h = 500 - m[0] - m[2];
+  
+  var w = parseInt(d3.select("#visContainer").style("width").split("px")[0]) - m[1] - m[3];
+  var h = parseInt(d3.select("#visContainer").style("height").split("px")[0]) - m[0] - m[2];
+
+  var x,
+      y,
+      duration = 1500,
+      delay = 500;
+
+  var color = d3.scale.category10();
+
+  var svg = d3.select("#visContainer").append("svg")
+      .attr("width", w + m[1] + m[3])
+      .attr("height", h + m[0] + m[2])
+      .append("g")
+      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+  var stocks,
+      symbols;
+
+  // A line generator, for the dark stroke.
+  var line = d3.svg.line()
+      .interpolate("basis")
+      .x(function(d) { return x(d.date); })
+      .y(function(d) { return y(d.price); });
+
+  // A line generator, for the dark stroke.
+  var axis = d3.svg.line()
+      .interpolate("basis")
+      .x(function(d) { return x(d.date); })
+      .y(h);
+
+  // A area generator, for the dark stroke.
+  var area = d3.svg.area()
+      .interpolate("basis")
+      .x(function(d) { return x(d.date); })
+      .y1(function(d) { return y(d.price); });
+
   queue(1)
       .defer(fetchCSV, ticker1)
       .defer(fetchCSV, ticker2)
       .defer(fetchCSV, ticker3)
       .awaitAll(createGraph);
+
 }
 
 function fetchCSV (ticker, callBack) {

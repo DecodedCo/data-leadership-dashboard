@@ -1,0 +1,47 @@
+<html>
+  
+  <head>
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+    <script src="//js.leapmotion.com/0.2.2/leap.js"></script>
+    <script>
+    	var showSentimentPanel, showSentimentScatter;
+      var showSentimentPanelVisually = false;
+    </script>
+    
+  </head>
+  
+  <body>
+    <div id="container">
+      
+      <!-- DASHBOARD -->
+      <div id="dashboard">
+
+      </div>
+      
+      <div id="articleTooltip"><p id="tooltipText"></p></div>
+      
+      <!-- DATA HANDLING FUNCTIONS -->
+      <script src="map.js"></script>
+      <script src="sentiment.js"></script>
+      <script src="panels.js"></script>
+      <script src="showreel.js"></script>
+      <!--  -->
+      <script>
+			// Add your custom script here. 
+        
+      </script>
+
+    </div>
+    <script src="leapscript.js"></script>
+  </body>
+  
+</html>
+

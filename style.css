@@ -1,0 +1,281 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body, div, section, h1, p, ul, li {
+  margin: 0; padding: 0;
+}
+
+body {
+ 	background: url('http://3.bp.blogspot.com/-JpSoGoNO6nw/UMIMMGgywrI/AAAAAAAACco/9vGlNtYzSK8/s1600/a-city-so-fast-wall-inkbluesky.png');
+  background-size: cover;
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
+#container {
+ 	width: 95%;
+  margin: 0 auto;
+}
+#map-canvas {
+	height: 250px;
+}
+h1 {
+	margin: 20px 0px;
+  font-weight: 500;
+}
+
+
+/*
+DASHBOARD STYLING.
+*/
+
+#dashboard {
+	padding-top: 4em;
+}
+
+.db-card {
+  display:block;
+  margin: 3% 1%;
+	border-radius: 3px;
+  border: 3px solid #F2F2F2;
+  box-shadow: 0px 1px 5px #222;
+  background: rgba(255,255,255,0.95);
+}
+
+.db-head {
+ 	padding: 10px;
+  background: rgba(0, 0, 100,0.9);
+  color: white;
+  font-size: 2em; line-height:1em;
+  font-weight: 400;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 2px solid rgb(0,0,80);
+  box-shadow: 0px 1px 8px #444;
+}
+
+.db-head span {
+	max-width: 800px;
+  margin: 0 auto;
+  display: block;
+  padding-left: 2%;
+}
+
+.db-card > h1 {
+  padding: 10px;
+  background: #F2F2F2;
+  font-size: 1em;
+  font-weight: 600;
+  color: rgb(8, 68, 51);
+  border-radius: 3px 3px 0 0;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+.db-card > article, .db-card > ul {
+  padding: 5%;
+}
+.db-card ul {
+  display:block;
+  list-style:none;
+}
+.db-card li {
+	padding: 5px 0px;
+  border-bottom:1px solid #ccc;
+}
+.db-card li:last-child {
+	border-bottom: 0px;
+}
+p.big {
+  text-align: right;
+  font-size: 2em; 
+  line-height: 1.5em;
+}
+p.small {
+  text-align: right;
+  font-size: 1em;
+  color: #aaa;
+}
+
+
+
+
+
+
+.clear {
+  clear:both
+}
+strong {
+	font-weight: 500;
+}
+
+
+
+
+/* 
+STOCK PRICE STYLING 
+*/
+article#stock {
+	display:flex;
+}
+div.stockdiv {
+  width:30%;
+  box-sizing: border-box;
+  margin:10px;
+  text-align:center;
+}
+.stockdiv > p {
+	display: flex;
+}
+p#stock-price, p#stock-chg{
+  box-sizing: border-box;
+	float:left;
+  width: 50%;
+  font-size:3em;
+  text-align:right;
+}
+p#stock-chg.negChange {
+	color: red;
+}
+p#stock-chg.posChange {
+	color: darkgreen;
+}
+.bigtemp{
+  font-weight:600;
+  margin-bottom:0;
+}
+.increase{
+  color:#66CC33;
+}
+.decrease{
+  color:C00000;
+}
+
+
+/* WEATHER STYLING */
+p {
+  font-family:Helvetica Neue, 'sans-serif';
+  font-size: 1.15em; 
+  line-height:1.5em;
+  letter-spacing:0.3;
+  margin:10px 0;
+}
+.weatherleft{
+  margin:0 40px 0 40px;
+}
+.weatherright{
+  line-height: 0.8;
+}
+.bigtemp{
+  font-weight: 600;
+  font-size: 2.0em;
+  line-height: 1.5em;
+  margin-bottom: 0;
+}
+.smalltemp{
+  font-weight: 100;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin-top: 5px;
+}
+
+
+
+/* SHOWREEL STYLING */
+svg {
+  font-family: "Helvetica Neue", Helvetica;
+}
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+/* SCATTER STYLING */
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.dot {
+  stroke: #000;
+  stroke: none;
+}
+.happy{
+  fill: rgba(111,194,8,1);
+}
+.sad{
+  fill: rgba(194,20,8,0.8);
+}
+.neutral{
+  fill: rgba(176,237,245,0.7);
+}
+#articleTooltip{
+	position:absolute;
+  display:block;
+  background: rgba(0,0,0,0.9);
+  text-align:center;
+  padding:10px;
+  border-radius: 3px;
+  max-width:200px;
+  opacity:0;
+  font-size: 1em; line-height:1.5em;
+  color: white;
+}
+
+
+
+
+/* 
+	MEDIA QUERIES 
+*/
+@media screen and (min-width: 600px) {
+	#container {
+  	max-width: 1000px;
+  }
+  /* you don't need this. it doesn't do anything.
+  .db-card {
+   	display:block;
+    float:none;
+  }
+  */
+  
+  /* 
+  	make selection box centered on large screens 
+  */
+  #selection {
+  	width: 50%;
+    margin: 0 auto;
+  }
+  
+  /* 
+  	arrange cards on a two column grid on larger screens 
+  */
+  .db-card {
+  	width: 48%;
+    margin: 1%;
+  }
+  /* 
+  	float all even cards to the right, 
+  	all odd ones to the left
+    and make sure they arrange very tightly (clear)
+  */
+  .db-card:nth-child(even){
+  	float: right;
+    clear: right;
+  }
+  .db-card:nth-child(odd){
+  	float: left;
+    clear: left;
+  }
+}
