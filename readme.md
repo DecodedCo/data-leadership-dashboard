@@ -1,7 +1,7 @@
 Repository for the JS Files for Data for Leaders.
 
 
-Code to add to index.html:
+Code to add to index.html in the document ready function:
 
         $( document ).ready(function() {
 					
