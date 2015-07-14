@@ -44,8 +44,9 @@ var area = d3.svg.area()
 var newDataObj = [];
 function showShowreel(ticker1,ticker2,ticker3){
   // Append the panel
+  console.log("Hello");
   $('#showReel').show();
-  
+
 
   // Prepare the svg
 
